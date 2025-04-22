@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ToDo List</title>
+    </head>
+    <body>
+        <ul>
+            {{ range .ToDo_list}}
+                {{if .IsCompleted}}
+                <li><s>{{.Task}}</s></li>
+                {{else}}
+                <li>{{.Task}}</li>
+                <a href="/todo/complete/{{.ID}}">Complete</a>
+                <a href="/todo/edit/{{.ID}}">Edit</a>
+                <a href="/todo/delete/{{.ID}}">Delete</a>
+                {{end}}
+            {{end}}
+        </ul>
+    </body>
+</html>
